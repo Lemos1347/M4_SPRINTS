@@ -1,9 +1,9 @@
 import React, { useContext, useState } from "react";
 import { useEffect } from "react";
-import LandingPage from "../components/landingPage";
-import PlayingPage from "../components/playingPage";
-import { PlayerContext, PlayerContextProvider } from "../context/player";
-import { PlayingContextProvider, PlayingContext } from "../context/playing";
+import LandingPage from "./components/landingPage";
+import PlayingPage from "./components/playingPage";
+import { PlayerContext, PlayerContextProvider } from "./context/player";
+import { PlayingContextProvider, PlayingContext } from "./context/playing";
 
 function App() {
   return (
