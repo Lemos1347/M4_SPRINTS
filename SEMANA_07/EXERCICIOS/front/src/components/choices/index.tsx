@@ -19,34 +19,43 @@ export const Choices = ({
   const handleColorButton = (color: string) => {
     switch (color) {
       case "green":
-        setResponse([...response, 1]);
+        setResponse((prev) => {
+          return [...prev, 1];
+        });
         break;
       case "red":
-        setResponse([...response, 2]);
+        setResponse((prev) => {
+          return [...prev, 2];
+        });
         break;
       case "yellow":
-        setResponse([...response, 3]);
+        setResponse((prev) => {
+          return [...prev, 3];
+        });
         break;
       case "blue":
-        setResponse([...response, 4]);
+        setResponse((prev) => {
+          return [...prev, 4];
+        });
         break;
     }
   };
 
   const handleSendButton = async () => {
     for (let i = 0; i < trueSequence.length; i++) {
-      if (trueSequence[i] != response[i]) {
+      if (trueSequence[i] !== response[i]) {
         throw new Error("Sequencia Errada");
       }
       console.log("Passou");
-      return;
     }
   };
 
   const sendNewSequence = () => {
     const newNumber: number = Math.floor(Math.random() * 4) + 1;
     setWatching(true);
-    setTrueSequence([...trueSequence, newNumber]);
+    setTrueSequence((prev) => {
+      return [...prev, newNumber];
+    });
     if (playerOne) {
       setPlayerOne(false);
       setPlayerTwo(true);
