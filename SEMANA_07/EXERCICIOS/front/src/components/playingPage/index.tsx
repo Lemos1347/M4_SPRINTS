@@ -25,8 +25,10 @@ const PlayingPage = () => {
     api
       .post("/post", { body: temp })
       .then(() => {
-        setWatching(false);
-        setResponse([]);
+        setTimeout(() => {
+          setWatching(false);
+          setResponse([]);
+        }, trueSequence.length * 1000);
       })
       .catch((err) => {
         console.log(err);
