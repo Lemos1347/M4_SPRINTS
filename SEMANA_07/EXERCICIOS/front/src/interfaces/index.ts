@@ -21,3 +21,7 @@ export interface IPlayerContext {
   setPlayerOne: React.Dispatch<React.SetStateAction<boolean>>;
   setPlayerTwo: React.Dispatch<React.SetStateAction<boolean>>;
 }
+
+export interface ISequence {
+  sequence: number[];
+}

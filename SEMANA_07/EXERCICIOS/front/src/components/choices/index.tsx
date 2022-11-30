@@ -3,6 +3,7 @@ import { PlayerContext } from "../../context/player";
 import { IChoices } from "../../interfaces";
 import api from "../../utils/axios";
 import { ButtonColor, ButtonSend } from "./style";
+import { SequenceDisplay } from "../sequenceDisplay";
 
 export const Choices = ({
   disabled,
@@ -42,6 +43,9 @@ export const Choices = ({
   };
 
   const handleSendButton = async () => {
+    if (trueSequence.length !== response.length) {
+      throw new Error("Sequencia Errada");
+    }
     for (let i = 0; i < trueSequence.length; i++) {
       if (trueSequence[i] !== response[i]) {
         throw new Error("Sequencia Errada");
@@ -128,6 +132,7 @@ export const Choices = ({
           </>
         )}
       </div>
+      <SequenceDisplay sequence={response} />
       {!disabled ? (
         <ButtonSend
           background="black"
